@@ -14,6 +14,7 @@
    * @param starred (default `false`) Displays starred dashboards
    * @param headings (default `true`) Chosen list selection(starred, recently Viewed, search) is shown as a heading
    * @param limit (default `10`) Set maximum items in a list
+   * @param folder (optional) folder name to search by
    * @return A json that represents a dashlist panel
    */
   new(
@@ -26,6 +27,7 @@
     starred=false,
     headings=true,
     limit=10,
+    folder,
   ):: {
     type: 'dashlist',
     title: title,
@@ -37,5 +39,6 @@
     headings: headings,
     limit: limit,
     [if description != null then 'description']: description,
+    [if folder != null then 'folder']: folder,
   },
 }
